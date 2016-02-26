@@ -30,7 +30,7 @@ It can be used to mask SSH connections. It's compatible with the way sslh demult
 %install
 install -d -m 0755 %{buildroot}%{_bindir}
 install -d -m 0755 %{buildroot}%{_docdir}/%{name}-%{version}
-install -m 0755 baryssh.py %{buildroot}%{_bindir}/baryssh
+install -m 0755 baryssh %{buildroot}%{_bindir}/baryssh
 install -m 0444 LICENSE %{buildroot}%{_docdir}/%{name}-%{version}/
 install -m 0444 README.md %{buildroot}%{_docdir}/%{name}-%{version}/
 
