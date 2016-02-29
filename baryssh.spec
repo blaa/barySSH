@@ -3,7 +3,7 @@
 #
 
 Name:           barySSH
-Version:        0.1.2
+Version:        0.2
 Release:        1%{?dist}
 Summary:        TCP proxy for masking underlying protocols
 License:        MIT

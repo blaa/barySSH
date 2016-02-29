@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name = "barySSH",
-    version = "v0.1.2",
+    version = "v0.2",
     author = "Tomasz Fortuna",
     author_email = "bla@thera.be",
     description = ("Proxy which uses simple time-based XOR scheme "

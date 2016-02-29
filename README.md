@@ -13,6 +13,7 @@ sslh demultiplexes SSH.
 The name `BarySSH' is just an inside joke, ignore it. Call it
 "proxor" if you don't like original name.
 
+Use 'baryssh -t' to run internal test and measure throughput.
 
 Usage
 =====
@@ -21,10 +22,10 @@ For example, to connect to an ssh service on "server.com"
 using tcp tunnel on port 20023:
 
 Run on client:
-barryssh -k 'shared key' -l 20023 -c server.com -p 20023
+baryssh -k 'shared passphrase' -l 20023 -c server.com -p 20023
 
 Run on server.com:
-baryssh -k 'shared key' -l 20023 -c 127.0.0.1 -p 22
+baryssh -k 'shared passphrase' -l 20023 -c 127.0.0.1 -p 22
 
 Then connect to the tunnel entry point with ssh:
 ssh -p 20023 localhost
