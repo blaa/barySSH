@@ -5,5 +5,5 @@ Requires=sshd.service
 
 [Service]
 Type=oneshot
-EnvironmentFile=/etc/baryssh-client.conf
+EnvironmentFile=/etc/baryssh-server.conf
 ExecStart=baryssh
