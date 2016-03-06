@@ -248,12 +248,10 @@ def main():
     # Parse options
     parser = OptionParser()
     defaults = {
-      'ip': os.environ['BARYSSH_SERVER_NAME'] if os.environ.has_key('BARYSSH_SERVER_NAME') else None,
-      'cp': os.environ['BARYSSH_PLAIN_PORT'] if os.environ.has_key('BARYSSH_PLAIN_PORT') else None,
-      'lp': os.environ['BARYSSH_MASKED_PORT'] if os.environ.has_key('BARYSSH_MASKED_PORT') else None,
-      'pass': os.environ['BARYSSH_SECRET_PASSPHRASE'] if \
-        os.environ.has_key('BARYSSH_SECRET_PASSPHRASE') else \
-        'You should set up your own key, although this one is usually fine.'
+      'ip': os.environ.get('BARYSSH_CONNECT_HOST', None),
+      'cp': os.environ.get('BARYSSH_CONNECT_PORT', None),
+      'lp': os.environ.get('BARYSSH_LISTEN_PORT', None),
+      'pass': os.environ.get('BARYSSH_SECRET_PASSPHRASE', 'You should set up your own key, although this one is usually fine.')
     }
 
     parser.add_option("-c", "--connect-ip", action="store", help="Connect to this specific ip address",
