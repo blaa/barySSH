@@ -12,6 +12,7 @@ MIT license
 """
 
 import sys
+import os
 
 from twisted.internet import defer
 from twisted.internet import protocol
@@ -246,14 +247,23 @@ def test():
 def main():
     # Parse options
     parser = OptionParser()
+    defaults = {
+      'ip': os.environ.get('BARYSSH_CONNECT_HOST', None),
+      'cp': os.environ.get('BARYSSH_CONNECT_PORT', None),
+      'lp': os.environ.get('BARYSSH_LISTEN_PORT', None),
+      'pass': os.environ.get('BARYSSH_SECRET_PASSPHRASE', 'You should set up your own key, although this one is usually fine.')
+    }
 
-    parser.add_option("-c", "--connect-ip", action="store", help="Connect to this specific ip address")
-    parser.add_option("-p", "--connect-port", action="store", type=int, help="Connect to this specific port")
-    parser.add_option("-l", "--listen-port", action="store", type=int, help="Listen on this port")
+    parser.add_option("-c", "--connect-ip", action="store", help="Connect to this specific ip address",
+                      default = defaults['ip'])
+    parser.add_option("-p", "--connect-port", action="store", type=int, help="Connect to this specific port",
+                      default = defaults['cp'])
+    parser.add_option("-l", "--listen-port", action="store", type=int, help="Listen on this port",
+                      default = defaults['lp'])
 
     parser.add_option("-t", "--test", action="store_true", help="Run internal test and exit")
     parser.add_option("-k", "--passphrase", action="store", help="Passphare for masking",
-                      default='You should set up your own key, although this one is usually fine.')
+                      default = defaults['pass'])
 
     options, args = parser.parse_args()
 

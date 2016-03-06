@@ -1,0 +1,7 @@
+[Unit]
+Description=barySSH server service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/baryssh-server.conf
+ExecStart=baryssh
