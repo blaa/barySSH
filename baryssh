@@ -25,6 +25,10 @@ from time import time
 import random
 from hashlib import sha256
 
+# Using -k makes the passphrase visible in 'ps aux' output. On multiuser systems
+# you might want to change the key here instead.
+DEFAULT_KEY='You should set up your own key, although this one is usually fine.'
+
 cfg = {
     'server_addr': None,
     'server_port': None,
@@ -242,24 +246,26 @@ def test():
     length = cnt * len(s)
     print "  {} B / {:.2f}s = {:.3f}MB/s".format(length, result, length / result / 1024.0 / 1024.0)
 
-
 def main():
     # Parse options
     parser = OptionParser()
 
     parser.add_option("-c", "--connect-ip", action="store", help="Connect to this specific ip address")
-    parser.add_option("-p", "--connect-port", action="store", type=int, help="Connect to this specific port")
+    parser.add_option("-p", "--connect-port", action="store", default=22, type=int, help="Connect to this specific port")
     parser.add_option("-l", "--listen-port", action="store", type=int, help="Listen on this port")
 
     parser.add_option("-t", "--test", action="store_true", help="Run internal test and exit")
     parser.add_option("-k", "--passphrase", action="store", help="Passphare for masking",
-                      default='You should set up your own key, although this one is usually fine.')
+                      default=DEFAULT_KEY)
 
     options, args = parser.parse_args()
 
     if options.test:
         test()
         sys.exit(0)
+
+    if not options.listen_port:
+        parser.error('You need to specify --listen-port option')
 
     log.startLogging(sys.stdout)
 

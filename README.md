@@ -17,6 +17,9 @@ Use 'baryssh -t' to run internal test and measure throughput.
 
 Usage
 =====
+To install from pip use: 
+pip install barySSH
+
 Run it on two computers to create a *masked* channel. 
 For example, to connect to an ssh service on "server.com" 
 using tcp tunnel on port 20023:
