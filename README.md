@@ -15,10 +15,20 @@ The name `BarySSH' is just an inside joke, ignore it. Call it
 
 Use 'baryssh -t' to run internal test and measure throughput.
 
+Prerequisites
+=============
+
+```bash
+apt-get install python-dev
+```
+
 Usage
 =====
-To install from pip use: 
+To install from pip use:
+
+```bash
 pip install barySSH
+```
 
 Run it on two computers to create a *masked* channel. 
 For example, to connect to an ssh service on "server.com" 
