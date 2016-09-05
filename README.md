@@ -19,7 +19,7 @@ Prerequisites
 =============
 
 ```bash
-apt-get install python-dev
+apt-get install python-dev cython
 ```
 
 Usage
@@ -27,7 +27,7 @@ Usage
 To install from pip use:
 
 ```bash
-pip install barySSH
+pip install baryssh
 ```
 
 Run it on two computers to create a *masked* channel. 
