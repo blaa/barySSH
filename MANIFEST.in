@@ -1,0 +1,1 @@
+include barylib/*.pyx barylib/*.c

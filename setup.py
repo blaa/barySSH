@@ -4,19 +4,24 @@
 from setuptools import setup
 from setuptools.extension import Extension
 
-
 try:
     from Cython.Build import cythonize
     USE_CYTHON=True
 except ImportError:
+    print
+    print
+    print "You need Cython to compile this project"
+    print
+    raise
     USE_CYTHON=False
     cythonize = lambda x: x
-ext = '.pyx' if USE_CYTHON else '.c'
+    print "Trying to work without cython"
 
+ext = '.pyx' if USE_CYTHON else '.c'
 
 setup(
     name = "barySSH",
-    version = "v0.3",
+    version = "v0.3.2",
     author = "Tomasz Fortuna",
     author_email = "bla@thera.be",
     description = ("Proxy which uses simple time-based XOR scheme "
@@ -34,8 +39,8 @@ setup(
     ],
     ext_modules = cythonize(
         Extension(
-            "barylib/barylib",
-            ["barylib/barylib.pyx"], # " + ext],
+            "barylib",
+            ["barylib/*.pyx"],
         )
     )
 )
