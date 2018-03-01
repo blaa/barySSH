@@ -195,7 +195,7 @@ def main():
         parser.error("You can't use both passphrase and key_file!")
 
     if options.key_file is not None:
-        with open(args.key_file, 'r') as f:
+        with open(options.key_file, 'r') as f:
             passphrase = f.read()
     else:
         passphrase = options.passphrase
