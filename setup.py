@@ -21,7 +21,7 @@ ext = '.pyx' if USE_CYTHON else '.c'
 
 setup(
     name = "barySSH",
-    version = "v0.3.2",
+    version = "v0.3.3",
     author = "Tomasz Fortuna",
     author_email = "bla@thera.be",
     description = ("Proxy which uses simple time-based XOR scheme "
